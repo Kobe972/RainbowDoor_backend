@@ -16,4 +16,6 @@ public class Controller {
         String result = token.buildTokenWithUid(appid, cert, channel, uid, RtcTokenBuilder.Role.Role_Publisher, timestamp);
         return result;
     }
+
+
 }
