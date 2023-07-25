@@ -66,7 +66,10 @@ public class Controller {
         sign = sign + secret_key;
         sign = org.apache.commons.codec.digest.DigestUtils.sha256Hex(sign);
         String result = "{\"uid\":" + uid + ",\"name\":\"" + user.getName() + "\",\"rid\":" + rid + ",\"rname\":\"" + user.getRname() + "\",\"expire_timestamp\":" + expire_timestamp + ",\"session_id\":\"" + sign + "\"}";
-        // set cookie to be session_id
+        // set cookie
+        response.addCookie(new jakarta.servlet.http.Cookie("uid", uid));
+        response.addCookie(new jakarta.servlet.http.Cookie("rid", rid));
+        response.addCookie(new jakarta.servlet.http.Cookie("expire_timestamp", expire_timestamp));
         response.addCookie(new jakarta.servlet.http.Cookie("session_id", sign));
         return result;
     }
@@ -106,7 +109,10 @@ public class Controller {
         sign = sign + secret_key;
         sign = org.apache.commons.codec.digest.DigestUtils.sha256Hex(sign);
         String result2 = "{\"uid\":" + uid + ",\"name\":\"" + user.getName() + "\",\"rid\":" + rid + ",\"rname\":\"" + user.getRname() + "\",\"expire_timestamp\":" + expire_timestamp + ",\"session_id\":\"" + sign + "\"}";
-        // set cookie to be session_id
+        // set cookie
+        response.addCookie(new jakarta.servlet.http.Cookie("uid", uid));
+        response.addCookie(new jakarta.servlet.http.Cookie("rid", rid));
+        response.addCookie(new jakarta.servlet.http.Cookie("expire_timestamp", expire_timestamp));
         response.addCookie(new jakarta.servlet.http.Cookie("session_id", sign));
         return result2;
     }
