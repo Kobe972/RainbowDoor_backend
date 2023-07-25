@@ -19,11 +19,8 @@ public class UserService {
         return users.get(0);
     }
 
-    public boolean register(String name, String password, int rid)
+    public void register(String name, String password, int rid)
     {
-        Integer state = 0;
-        userMapper.registerUser(name, password, rid, state);
-        if(state == 0) return false;
-        return true;
+        userMapper.registerUser(name, password, rid, null);
     }
 }
